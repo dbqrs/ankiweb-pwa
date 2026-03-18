@@ -9,8 +9,18 @@
   <link rel="apple-touch-icon" href="icon.png" />
   <link rel="manifest" href="manifest.json" />
   <title>AnkiWeb</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { overflow: hidden; }
+    iframe { width: 100vw; height: 100vh; border: none; display: block; }
+  </style>
 </head>
 <body>
-  <script>window.location.replace('https://ankiweb.net');</script>
+  <iframe src="https://ankiweb.net" allow="fullscreen"></iframe>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
 </body>
 </html>
