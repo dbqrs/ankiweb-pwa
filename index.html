@@ -9,8 +9,31 @@
   <link rel="apple-touch-icon" href="icon.png" />
   <link rel="manifest" href="manifest.json" />
   <title>AnkiWeb</title>
+  <style>
+    body {
+      margin: 0;
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    img {
+      width: 120px;
+      height: 120px;
+      border-radius: 24px;
+    }
+  </style>
 </head>
 <body>
-  <script>window.location.replace('https://ankiweb.net');</script>
+  <img src="icon.png" alt="AnkiWeb" />
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+    setTimeout(() => {
+      window.location.replace('https://ankiweb.net');
+    }, 1500);
+  </script>
 </body>
 </html>
